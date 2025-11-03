@@ -1,7 +1,9 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from stock.views import stock_list, stock_detail, stock_buy, account
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('stock/', include(('stock.urls', 'stock'), namespace='stock')),
+    path('list/', stock_list, name='list'),
+    path('detail/<int:pk>/', stock_detail, name='detail'),
+    path('buy/<int:pk>/', stock_buy, name='buy'),
+    path('account/', account, name='account')
 ]
